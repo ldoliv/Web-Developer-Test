@@ -1,9 +1,9 @@
 // import Header from 'components/Header';
 
-export function Cart() {
+export function Home() {
 	return (
 		<div className="container">
-			<h1>Cart Page</h1>
+			<h1>Home Page</h1>
 		</div>
 	)
 }
