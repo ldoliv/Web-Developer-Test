@@ -30,15 +30,15 @@ module.exports = function(grunt) {
     },
 
     sass: {
-        options: {
-          implementation: sass,
-          sourceMap: true
-        },
-        dist: {
-          files: {
-              'public/styles/app.css': 'src/styles/app.scss'
-          }
+      options: {
+        implementation: sass,
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          'public/styles/app.css': 'src/styles/app.scss'
         }
+      }
     },
 
     uglify: {
@@ -53,6 +53,9 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        livereload: 35730,
+      },
       files: ['<%= jshint.files %>'],
       tasks: ['dev']
     }
