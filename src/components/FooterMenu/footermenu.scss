@@ -1,5 +1,5 @@
 
-.navmenu {
+.footermenu {
 	a {
 		padding: 8px;
 		display: inline-block;
@@ -22,13 +22,8 @@
 		border-radius: 3px;
 
 		&:hover {
-			background-color: rgba(204, 204, 204, 0.40);
+			// background-color: rgba(204, 204, 204, 0.40);
 			color: #000;
 		}
-	}
-	.navicon {
-		display: block;
-		line-height: 1;
-		margin-top: -5px;
 	}
 }

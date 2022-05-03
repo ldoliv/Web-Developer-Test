@@ -1,26 +1,19 @@
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/scss/style.scss';
 
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {Home, Products, News, Contact, Cart} from './pages';
-import {DefaultLayout} from './layouts';
+import {useRoutes} from "react-router-dom";
+import appConfig from './config';
+
 
 
 function App() {
+
+   let routes = useRoutes(appConfig.routes);
+
    return (
-      <BrowserRouter>
-         <div className='pages'>
-            <Routes>
-               <Route path="/" element={<DefaultLayout />}>
-                  <Route index element={<Home />} />
-                  <Route path="products" element={<Products />} />
-                  <Route path="news" element={<News />} />
-                  <Route path="contact" element={<Contact />} />
-                  <Route path="cart" element={<Cart />} />
-               </Route>
-            </Routes>
-         </div>
-      </BrowserRouter>
+      <div className='pages'>
+         {routes}
+      </div>
    );
 }
 

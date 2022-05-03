@@ -1,15 +1,14 @@
 import {NavLink} from 'react-router-dom';
-import './navmenu.scss';
-import cartIcon from 'assets/images/cart.svg';
+import './footermenu.scss';
 
-export function NavMenu() {
+export function FooterMenu() {
 	return (
-		<nav className='navmenu'>
-			<ul className='d-flex align-items-center'>
+		<nav className='footermenu'>
+			<ul className=''>
 				<li className='navitem'><NavLink className="navbtn" to="/products">Products</NavLink></li>
 				<li className='navitem'><NavLink className="navbtn" to="/news">News</NavLink></li>
 				<li className='navitem'><NavLink className="navbtn" to="/contact">Contact</NavLink></li>
-				<li className='navitem'><NavLink className="navicon" to="/cart"><img src={cartIcon} alt="Open Cart" /></NavLink></li>
+				<li className='navitem'><NavLink className="navbtn" to="/cart">Your Cart</NavLink></li>
 			</ul>
 		</nav>
 	)

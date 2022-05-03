@@ -1,0 +1,17 @@
+
+
+1. Must be responsive
+2. State client libraries or frameworks. – Please state which you used (if any) and why.
+3. Page already has products
+
+4. Update totals when changing number by input or clicking on + and -
+	- Input field validation:
+		Input field must be an integer and >= 1 and <= stock level
+
+5. Delete, deletes item and updates the totals
+6. With no products in cart, disable "Buy Now" button
+
+7. Make fake post and return success
+
+8. Unit Tests
+
