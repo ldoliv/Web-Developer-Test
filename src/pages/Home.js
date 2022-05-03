@@ -2,8 +2,10 @@
 
 export function Home() {
 	return (
-		<div className="container">
-			<h1>Home Page</h1>
+		<div className="page-container">
+			<div className="intro mb-5">
+				<h1>Home Page</h1>
+			</div>
 		</div>
 	)
 }

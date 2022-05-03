@@ -1,0 +1,11 @@
+<svg id="Shape" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7" height="1.4" viewBox="0 0 7 1.4">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Mask" width="7" height="1.4" fill="none"/>
+    </clipPath>
+  </defs>
+  <rect id="Mask-2" data-name="Mask" width="7" height="1.4" fill="none"/>
+  <g id="Shape-2" data-name="Shape" clip-path="url(#clip-path)">
+    <path id="Shape-3" data-name="Shape" d="M3.938.875H6.563a.438.438,0,0,0,0-.875H.438a.438.438,0,0,0,0,.875H3.063V3.5" transform="translate(0 0.529)" fill="#448aff"/>
+  </g>
+</svg>

@@ -1,9 +1,17 @@
+:root {
+	--bs-gutter-x: 16px;
+	--bs-body-line-height: 1.7;
+}
+
 html {
 	
 }
 body {
 	font-family: 'Libre Franklin', sans-serif;
 	background-color: #FBFBFB;
+	color: rgba(0, 0, 0, 0.87);
+	font-size: 14px;
+	font-weight: 200;
 }
 
 .page {
@@ -25,14 +33,81 @@ img {
 }
 
 .apps-container {
-	max-width: 1310px;
+	max-width: 1366px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 16px;
-	padding-right: 16px;
+	padding-left: 24px;
+	padding-right: 24px;
 
 	@media (min-width: 768px) {
 		padding-left: 47px;
 		padding-right: 47px;
+	}
+}
+
+// Buttons
+// ---------------------------------------------------------
+.btn {
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 0.02714em;
+	padding: 0.667em 1.037em;
+	border-radius: 3px;
+}
+.btn-primary {
+	background-color: #448AFF;
+	border-color: #448AFF;
+}
+
+// Inputs
+// ---------------------------------------------------------
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+// Typography
+// ---------------------------------------------------------
+h1 {
+	font-size: 24px;
+	font-weight: 200;
+	letter-spacing: -0.01353em;
+	margin-bottom: 0.4em;
+}
+
+
+// Pages
+// ---------------------------------------------------------
+
+.page {
+
+	&:not(.page-home) .page-container {
+		padding-top: 48px;
+		padding-bottom: 48px;
+		
+		.intro {
+			margin-bottom: 50px;
+		}
+
+		@media (min-width: 768px) {
+			padding-top: 116px;
+			padding-bottom: 116px;
+		}
+	}
+
+	&.page-cart {
+		.page-container {
+			@media (min-width: 768px) {
+				max-width: 679px;
+			}
+		}
 	}
 }

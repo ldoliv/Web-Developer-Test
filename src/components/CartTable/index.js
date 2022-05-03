@@ -1,0 +1,1 @@
+export {CartTable as default} from './CartTable';

@@ -2,8 +2,10 @@
 
 export function News() {
 	return (
-		<div className="container">
-			<h1>News Page</h1>
+		<div className="page-container container">
+			<div className="intro mb-5">
+				<h1>News Page</h1>
+			</div>
 		</div>
 	)
 }

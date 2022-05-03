@@ -1,0 +1,1 @@
+export {QtyInput as default} from './QtyInput';

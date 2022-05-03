@@ -11,9 +11,9 @@ function App() {
    let routes = useRoutes(appConfig.routes);
 
    return (
-      <div className='pages'>
+      <>
          {routes}
-      </div>
+      </>
    );
 }
 

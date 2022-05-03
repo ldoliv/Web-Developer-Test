@@ -1,0 +1,63 @@
+
+.cart-table {
+	
+	table {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	.table-items {
+		margin-bottom: 32px;
+
+		thead tr {
+			border-bottom: 1px solid #EFEFEF;
+			th {
+				padding-bottom: 17px;
+				font-weight: 500;
+			}
+		}
+		td {
+			padding-top: 9px;
+			padding-bottom: 9px;
+		}
+	}
+
+	.table-subtotals {
+		margin-bottom: 47px;
+
+		td {
+			padding-top: 6px;
+			padding-bottom: 6px;
+		}
+		tr:last-child {
+			.product {
+				font-weight: 500;
+			}
+		}
+	}
+
+	.product {
+		width: 180px;
+	}
+	.price {
+		width: 80px;
+		text-align: right;
+	}
+	.qty {
+		width: 186px;
+		text-align: center;
+	}
+	.cost {
+		width: 98px;
+		text-align: right;
+	}
+	.remove {
+		width: 60px;
+		text-align: right;
+		cursor: pointer;
+
+		img {
+			
+		}
+	}
+}

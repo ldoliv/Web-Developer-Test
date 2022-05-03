@@ -2,8 +2,10 @@
 
 export function Contact() {
 	return (
-		<div className="container">
-			<h1>Contact Page</h1>
+		<div className="page-container container">
+			<div className="intro mb-5">
+				<h1>Contact Page</h1>
+			</div>
 		</div>
 	)
 }

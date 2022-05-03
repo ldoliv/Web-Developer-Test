@@ -1,21 +1,32 @@
 
 .navmenu {
-	a {
-		padding: 8px;
+
+	%hide {
+		transition: all 0.2s ease-out;
+		opacity: 0;
+		visibility: hidden;
+	}
+	%show {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	%navtext {
 		display: inline-block;
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 0.02714em;
 	}
 
 	ul {
-		padding: 0;
-		margin: 0;
+		padding-left: 0;
+		margin-bottom: 0;
 	}
 	.navitem {
 		list-style: none;
 	}
 	.navbtn {
-		text-transform: uppercase;
-		letter-spacing: 0.02714em;
-		font-size: 12px;
+		@extend %navtext;
 		padding: 0.88em 1.14em;
 		transition: all 0.2s ease-out;
 		color: #000;
@@ -27,8 +38,64 @@
 		}
 	}
 	.navicon {
-		display: block;
+		padding: 8px;
+		display: inline-block;
 		line-height: 1;
 		margin-top: -5px;
+	}
+
+	.mobile {
+		@extend %navtext;
+
+		&.opened {
+			.overlay {
+				@extend %show;
+			}
+			.mobile-menu {
+				@extend %show;
+			}
+		}
+
+		.overlay {
+			@extend %hide;
+			background-color: rgba(0, 0, 0, 0.80);
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.mobile-open-menu {
+			cursor: pointer;
+		}
+
+		.mobile-menu {
+			@extend %hide;
+			position: absolute;
+			box-shadow: 0 4px 5px rgba(0, 0, 0, 0.20);
+			background-color: #fff;
+			top: 8px;
+			right: 8px;
+			border-radius: 2px;
+
+			.navicon,
+			.navbtn {
+				display: block;
+				padding: 1.4em 1.7em;
+
+				&:hover {
+					background-color: transparent;
+				}
+			}
+
+
+		}
+	}
+
+	.desktop {
+		.icons {
+			margin-right: -8px;
+		}
 	}
 }
