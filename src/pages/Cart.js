@@ -1,11 +1,14 @@
 import {useState, useEffect} from "react"
 import api from "services/api"
 import CartTable from "components/CartTable"
+import Modal from "components/Modal";
 
 export function Cart() {
 
 	const [loading, setLoading] = useState(true);
 	const [cartItems, setCartItems] = useState([]);
+	const [orderSubmited, setOrderSubmited] = useState(false);
+
 
 	useEffect(() => {
 
@@ -33,15 +36,39 @@ export function Cart() {
 
 	}, [])
 
+
+	function handleUpdate(updatedItems) {
+		setCartItems(updatedItems);
+	}
+
+	function handleBuy() {
+		return api.buyProducts(cartItems)
+			.then(() => {
+				setOrderSubmited(true);
+			})
+	}
+
 	return (
 		<div className="page-container container">
 			<div className="intro mb-5">
 				<h1>Your Basket</h1>
-				<p>Items you have added to your basket are shown below. Adjust the quantities or remove items before continuing purchase.</p>
+				{!orderSubmited && <p>Items you have added to your basket are shown below. Adjust the quantities or remove items before continuing purchase.</p>}
+				{orderSubmited && <p>Your products were successfully purchased!</p>}
 			</div>
 
 			{loading && <div>Loading...</div>}
-			{!loading && <CartTable cartItems={cartItems} />}
+			{!loading && !orderSubmited && <CartTable cartItems={cartItems} onUpdate={handleUpdate} onBuy={handleBuy} />}
+
+			{/* <Modal
+				className="info"
+				isOpen={orderSubmited}
+				title='Success'
+				onClose={() => setOrderSubmited(false)}
+			>
+				<div className="">
+					Your products were successfully purchased!
+				</div>
+			</Modal> */}
 
 		</div>
 	)

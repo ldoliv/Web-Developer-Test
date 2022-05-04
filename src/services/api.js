@@ -23,6 +23,10 @@ const api = {
 			}
 		]
 		return cartItems;
+	},
+	buyProducts: async () => {
+		await delay(500);
+		return true;
 	}
 }
 

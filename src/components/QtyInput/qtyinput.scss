@@ -10,7 +10,8 @@
 		cursor: pointer;
 	}
 
-	input[type="number"] {
+	input[type="number"],
+	input[type="text"] {
 		border: 0;
 		padding: 0;
 		width: 100%;

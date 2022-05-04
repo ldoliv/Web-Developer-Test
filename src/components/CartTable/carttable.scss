@@ -1,5 +1,5 @@
 
-.cart-table {
+.cart-desktop {
 	
 	table {
 		width: 100%;
@@ -58,6 +58,39 @@
 
 		img {
 			
+		}
+	}
+}
+
+.cart-mobile {
+	.cart-items {
+		.cart-item {
+			margin-bottom: 40px;
+		}
+		.product {
+			font-weight: 400;
+			padding-bottom: 16px;
+			margin-bottom: 4px;
+			border-bottom: 1px solid #EFEFEF;
+		}
+		.row {
+			padding-top: 4px;
+			padding-bottom: 4px;
+		}
+		.label {
+			font-weight: 500;
+		}
+	}
+	.subtotals {
+		margin-bottom: 40px;
+		
+		.row {
+			padding-top: 4px;
+			padding-bottom: 4px;
+
+			&:last-child {
+				font-weight: 500;
+			}
 		}
 	}
 }

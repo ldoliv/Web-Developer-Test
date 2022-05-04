@@ -1,16 +1,19 @@
-import {useState} from 'react';
 import './qtyinput.scss';
 import plusIcon from 'assets/images/plus.svg';
 import minusIcon from 'assets/images/minus.svg';
 
 
-
 export function QtyInput(props) {
 
-	const [qty, setQty] = useState(props.value || parseInt(props.min) || 0);
+	const {min, max} = props;
+	const value = parseInt(props.value);
+
 
 	function isValidQty(val) {
-		const {min, max} = props;
+
+		if (isNaN(val)) {
+			return false;
+		}
 
 		if (!isNaN(min) && val < parseInt(min)) {
 			return false;
@@ -23,29 +26,32 @@ export function QtyInput(props) {
 		return true;
 	}
 
+	function changeQty(val) {
+		props.onChange(val);
+	}
 
 	function handleChange(e) {
-		const val = e.target.value;
+		const val = parseInt(e.target.value);
+		const validInput = e.target.validity.valid;
 
-		if (isValidQty(val)) {
-			setQty(val);
+		if (isValidQty(val) && validInput) {
+			changeQty(val);
 		}
 	}
 
 	function handleSubtract() {
-		const nextVal = qty - 1;
+		const nextVal = value - 1;
 		if (isValidQty(nextVal)) {
-			setQty(qty - 1);
+			changeQty(nextVal);
 		}
 	}
 
 	function handleAdd() {
-		const nextVal = qty + 1;
+		const nextVal = value + 1;
 		if (isValidQty(nextVal)) {
-			setQty(qty + 1);
+			changeQty(nextVal);
 		}
 	}
-
 
 	return (
 		<div className='qty-input'>
@@ -56,7 +62,7 @@ export function QtyInput(props) {
 					</div>
 				</div>
 				<div className="col-auto">
-					<input type="number" value={qty} onChange={handleChange}></input>
+					<input type="text" pattern="[0-9]+" value={value} onChange={handleChange} ></input>
 				</div>
 				<div className="col">
 					<div className='control add' onClick={handleAdd}>
