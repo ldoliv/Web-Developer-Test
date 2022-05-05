@@ -62,7 +62,7 @@ export function QtyInput(props) {
 					</div>
 				</div>
 				<div className="col-auto">
-					<input type="text" pattern="[0-9]+" value={value} onChange={handleChange} ></input>
+					<input type="text" pattern="[1-9]+" value={value} onChange={handleChange} ></input>
 				</div>
 				<div className="col">
 					<div className='control add' onClick={handleAdd}>
