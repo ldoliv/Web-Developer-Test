@@ -3,6 +3,7 @@ import api from "services/api"
 import CartTable from "components/CartTable"
 import Modal from "components/Modal";
 
+
 export function Cart() {
 
 	const [loading, setLoading] = useState(true);

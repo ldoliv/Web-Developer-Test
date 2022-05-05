@@ -7,21 +7,20 @@ export function CartTable(props) {
 
 	const {cartItems = []} = props;
 
-	function handleQtyChange(qty, index) {
+	function handleQtyChange(qty, sku) {
 		const updatedItems = cartItems.slice();
-		const updatedItem = updatedItems[index];
+		const updatedItem = updatedItems.find(cartItem => cartItem.sku === sku);
 		updatedItem.qty = qty;
 
 		// console.log(updatedItems);
 		props.onUpdate(updatedItems);
 	}
 
-	function handleRemoveItem(e, index) {
-		const updatedItems = cartItems.slice();
-		updatedItems.splice(index, 1);
+	function handleRemoveItem(e, sku) {
+		const filtered = cartItems.filter(cartItem => cartItem.sku !== sku);
 
-		// console.log(updatedItems);
-		props.onUpdate(updatedItems);
+		// console.log(filtered);
+		props.onUpdate(filtered);
 	}
 
 	function handleBuy(e) {
@@ -62,11 +61,11 @@ export function CartTable(props) {
 									<td className="product">{cartItem.name}, {cartItem.size ? cartItem.size : 'one size'}</td>
 									<td className="price">£{cartItem.price}</td>
 									<td className="qty">
-										<QtyInput min="1" max={cartItem.stockLevel} value={cartItem.qty} onChange={(qty) => handleQtyChange(qty, index)} />
+										<QtyInput min="1" max={cartItem.stockLevel} value={cartItem.qty} onChange={(qty) => handleQtyChange(qty, cartItem.sku)} />
 									</td>
 									<td className="cost">£{cost}</td>
 									<td className="remove">
-										<div className="remove-item" onClick={(e) => handleRemoveItem(e, index)}>
+										<div className="remove-item" onClick={(e) => handleRemoveItem(e, cartItem.sku)}>
 											<img src={binIcon} alt="Remove" />
 										</div>
 									</td>
@@ -136,7 +135,7 @@ export function CartTable(props) {
 									<div className='row justify-content-between'>
 										<div className='col-auto label'>Quantity</div>
 										<div className='col text-end'>
-											<QtyInput min="1" max={cartItem.stockLevel} value={cartItem.qty} onChange={(qty) => handleQtyChange(qty, index)} />
+											<QtyInput min="1" max={cartItem.stockLevel} value={cartItem.qty} onChange={(qty) => handleQtyChange(qty, cartItem.sku)} />
 										</div>
 									</div>
 									<div className='row justify-content-between'>
@@ -146,7 +145,7 @@ export function CartTable(props) {
 									<div className='row justify-content-between'>
 										<div className='col-auto label'>Remove</div>
 										<div className='col text-end'>
-											<div className="remove-item" onClick={(e) => handleRemoveItem(e, index)}>
+											<div className="remove-item" onClick={(e) => handleRemoveItem(e, cartItem.sku)}>
 												<img src={binIcon} alt="Remove" />
 											</div>
 										</div>
